@@ -4,8 +4,14 @@ const app: Application = express();
 
 const port: number = 3000;
 
-app.listen(port, () => console.log(`Server is listening on port ${port}...`));
+const tasks = require("./routes/tasks");
 
-app.get("/", (req, res) => {
+app.listen(port, () => console.log(`Server is listening on port ${port}...`));
+//middleware
+app.use(express.json());
+//routes
+app.get("/hello", (req, res) => {
   res.send("ello govener");
 });
+
+app.use("/api/v1/tasks", tasks);
