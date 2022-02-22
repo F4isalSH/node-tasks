@@ -16,8 +16,8 @@ export const Home: React.FC<HomeProps> = ({}) => {
       <Container pt={20}>
         <VStack bg="white" borderRadius="md" boxShadow="md" p={5} spacing={5}>
           <Heading textAlign="center">Task Manager</Heading>
-          <HStack>
-            <form>
+          <form>
+            <HStack>
               <Input placeholder="e.g wash dishes" />
               <Button
                 _hover={{ bg: "purple.400" }}
@@ -26,8 +26,8 @@ export const Home: React.FC<HomeProps> = ({}) => {
               >
                 Submit
               </Button>
-            </form>
-          </HStack>
+            </HStack>
+          </form>
         </VStack>
       </Container>
     </Box>
