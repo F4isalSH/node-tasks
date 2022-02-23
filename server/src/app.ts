@@ -10,8 +10,4 @@ app.listen(port, () => console.log(`Server is listening on port ${port}...`));
 //middleware
 app.use(express.json());
 //routes
-app.get("/hello", (req, res) => {
-  res.send("ello govener");
-});
-
 app.use("/api/v1/tasks", tasks);
