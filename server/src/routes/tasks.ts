@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 
 const {
   getAllTasks,
@@ -7,6 +7,7 @@ const {
   deleteTasks,
   getTask,
 } = require("../controllers/tasks");
+
 const router = Router();
 
 router.route("/").get(getAllTasks).post(createTask);
