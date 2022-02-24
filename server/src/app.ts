@@ -1,4 +1,5 @@
 import express, { Application, Response } from "express";
+require("dotenv").config();
 
 const app: Application = express();
 
@@ -15,7 +16,7 @@ app.use("/api/v1/tasks", tasks);
 
 const start = async () => {
   try {
-    await connectDB();
+    await connectDB(process.env.MONGO_URI);
     console.log("DATABASE CONNECTED");
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
