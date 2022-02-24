@@ -16,6 +16,7 @@ app.use("/api/v1/tasks", tasks);
 const start = async () => {
   try {
     await connectDB();
+    console.log("DATABASE CONNECTED");
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );

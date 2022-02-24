@@ -7,4 +7,4 @@ const connectDB = (url: string) => {
   mongoose.connect(connectionString);
 };
 
-module.exports = { connectDB };
+module.exports = connectDB;
