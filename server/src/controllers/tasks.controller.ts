@@ -1,8 +1,13 @@
 import { Request, Response } from "express";
 const Task = require("../models/task.model");
 
-const getAllTasks = (req: Request, res: Response) => {
-  res.send("all tasks");
+const getAllTasks = async (req: Request, res: Response) => {
+  try {
+    const tasks = await Task.find({});
+    res.status(201).json({ tasks });
+  } catch (error: any) {
+    res.status(500).json(error);
+  }
 };
 
 const createTask = async (req: Request, res: Response) => {
