@@ -36,8 +36,17 @@ const updateTask = (req: Request, res: Response) => {
   res.send("update task");
 };
 
-const deleteTasks = (req: Request, res: Response) => {
-  res.send("delete task");
+const deleteTasks = async (req: Request, res: Response) => {
+  try {
+    const { id: taskID } = req.params;
+    const task = await Task.findOneAndDelete({ _id: taskID });
+    if (!task) {
+      return res.status(404).json({ msg: "No task with that ID" });
+    }
+    res.status(200).json({ task });
+  } catch (error: any) {
+    res.status(500).json(error);
+  }
 };
 
 module.exports = { getAllTasks, createTask, getTask, updateTask, deleteTasks };
