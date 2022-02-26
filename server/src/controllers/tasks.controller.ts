@@ -19,8 +19,17 @@ const createTask = async (req: Request, res: Response) => {
   }
 };
 
-const getTask = (req: Request, res: Response) => {
-  res.json({ id: req.params.id });
+const getTask = async (req: Request, res: Response) => {
+  try {
+    const { id: taskID } = req.params;
+    const task = await Task.findOne({ _id: taskID });
+    if (!task) {
+      return res.status(404).json({ msg: "No task with that ID" });
+    }
+    res.status(200).json({ task });
+  } catch (error: any) {
+    res.status(500).json(error);
+  }
 };
 
 const updateTask = (req: Request, res: Response) => {
