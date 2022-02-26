@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+const Task = require("../models/task.model");
 
 const getAllTasks = (req: Request, res: Response) => {
   res.send("all tasks");
