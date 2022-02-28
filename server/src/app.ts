@@ -9,10 +9,13 @@ const tasks = require("./routes/tasks.route");
 
 const connectDB = require("./database/connect");
 
-//middleware
+const errorHandler = require("./middleware/errorHandler");
+
 app.use(express.json());
 //routes
 app.use("/api/v1/tasks", tasks);
+
+app.use(errorHandler);
 
 const start = async () => {
   try {
