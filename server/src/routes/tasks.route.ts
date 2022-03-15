@@ -8,9 +8,7 @@ import {
   getTask,
 } from "../controllers/tasks.controller";
 
-const router = Router();
+export const tasksRouter = Router();
 
-router.route("/").get(getAllTasks).post(createTask);
-router.route("/:id").get(getTask).patch(updateTask).delete(deleteTasks);
-
-export default router;
+tasksRouter.route("/").get(getAllTasks).post(createTask);
+tasksRouter.route("/:id").get(getTask).patch(updateTask).delete(deleteTasks);

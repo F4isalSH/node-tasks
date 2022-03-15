@@ -1,5 +1,5 @@
 import express, { Application } from "express";
-import tasksRouter from "./routes/tasks.route";
+import { tasksRouter } from "./routes/tasks.route";
 import { connectDB } from "./database/connect";
 import { errorHandler } from "./middleware/errorHandler";
 
